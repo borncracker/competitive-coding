@@ -56,6 +56,8 @@ public class Test {
              }
     }
     public static void main(String args[]){
+        int arr[] ={1,2,3,5};
+        System.out.println("Index: " + Arrays.binarySearch(arr,4));
         System.out.println("Exceptions: " + exceptions());
         ModelType modelType = null;
         switch (modelType){
