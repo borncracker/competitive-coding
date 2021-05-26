@@ -56,6 +56,10 @@ public class Test {
              }
     }
     public static void main(String args[]){
+        int a ='a';
+        int A = 'A';
+        int one = '1';
+        System.out.println("a: "+a+" A: "+A+" one: "+one);
         int arr[] ={1,2,3,5};
         System.out.println("Index: " + Arrays.binarySearch(arr,4));
         System.out.println("Exceptions: " + exceptions());
@@ -68,9 +72,9 @@ public class Test {
             default:
                 System.out.println("default");
         }
-        String one="1000";
-        String two = "2500";
-        System.out.println(one.compareTo(two));
+        String first="1000";
+        String second = "2500";
+        System.out.println(first.compareTo(second));
         Integer x = 50;
         System.out.println(x.toString());
         Map<String, Integer> map = new HashMap<>();

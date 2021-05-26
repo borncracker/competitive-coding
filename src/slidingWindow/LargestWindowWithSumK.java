@@ -4,41 +4,24 @@ import java.util.*;
 // Java implementation to find the length
 // of longest subarray having sum k
 class LargestWindowWithSumK {
-
     // function to find the length of longest
     // subarray having sum k
-    static int lenOfLongSubarr(int[] arr, int n, int k)
+    static int lenOfLongSubarr(int[] arr, int k)
     {
-        // HashMap to store (sum, index) tuples
-        HashMap<Integer, Integer> map = new HashMap<>();
-        int sum = 0, maxLen = 0;
-
-        // traverse the given array
-        for (int i = 0; i < n; i++) {
-
-            // accumulate sum
-            sum += arr[i];
-
-            // when subarray starts from index '0'
-            if (sum == k)
-                maxLen = i + 1;
-
-            // make an entry for 'sum' if it is
-            // not present in 'map'
-            if (!map.containsKey(sum)) {
-                map.put(sum, i);
+        int i=0,j=0,sum=0,maxLen=Integer.MIN_VALUE;
+        while (j<arr.length){
+            sum+=arr[j];
+            if(sum==k){
+                if(maxLen < j-i+1){
+                    maxLen = j-i+1;
+                }
             }
-
-            // check if 'sum-k' is present in 'map'
-            // or not
-            if (map.containsKey(sum - k)) {
-
-                // update maxLength
-                if (maxLen < (i - map.get(sum - k)))
-                    maxLen = i - map.get(sum - k);
+            while (sum>k){
+                sum -= arr[i];
+                i++;
             }
+            j++;
         }
-
         return maxLen;
     }
 
@@ -49,6 +32,6 @@ class LargestWindowWithSumK {
         int n = arr.length;
         int k = 15;
         System.out.println("Length = " +
-                lenOfLongSubarr(arr, n, k));
+                lenOfLongSubarr(arr, k));
     }
 }
